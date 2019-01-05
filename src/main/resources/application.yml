@@ -1,0 +1,72 @@
+# 公司配置
+company:
+  name: yahoo
+  from: aaa
+  level: 4
+  info:
+  - location: ad
+    nature: 是啥
+    city: dvss
+  - city:
+  treasure:
+    name: df
+    age: 32
+  website:
+    manager: sdd
+    password: 3
+    url: sdfad
+# # 日志配置
+#logging:
+#  config: classpath:logback-spring.xml
+#  #  日志格式${log-path}/${log-name}.log
+#  log-path: demo-logs
+#  log-file: demo.log
+#  level:
+#    root: warn
+#    com.st.mapper: debug
+# spring:
+##   cache:
+##     ehcache:
+##       config: classpath:ehcache.xml
+##     type: ehcache
+##   data:
+##     mongodb:
+##       host: localhost
+##       port: 27017
+##       database: jail_user
+# #            username:
+# #            password:
+spring:
+  datasource:
+       # 时区配置 serverTimezone=GMT%2B8 东八区
+       url: jdbc:mysql://localhost:3306/test_user?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8
+       username: root
+       password: root
+       type: com.alibaba.druid.pool.DruidDataSource
+mybatis:
+     # 扫描@Alias，配置实体类别名
+     type-aliases-package: com.st.model
+     mapper-locations: classpath:mapper/*.xml
+     configuration:
+     # 配置数据表字段映射到实体类
+      mapUnderscoreToCamelCase: true
+
+mapper:
+     not-empty: false
+     # 取回主键的方式
+     identity: MYSQL
+     # 驼峰转下划线小写形式
+     #style: camelhumpandlowercase
+     # 用于校验通用 Example 构造参数 entityClass 是否和当前调用的 Mapper<EntityClass> 类型一致。
+     checkExampleEntityClass: true
+     # 安全删除,必须有条件
+     safeDelete: true
+     # 安全更新
+     safeUpdate: true
+     # 用于配置是否将枚举类型当成基本类型对待。
+     enum-as-simple-type: true
+pagehelper:
+     helperDialect: mysql
+     reasonable: true
+     supportMethodsArguments: true
+     params: count=countSql

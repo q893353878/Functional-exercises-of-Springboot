@@ -1,0 +1,16 @@
+@var jsContent={
+<script type="text/javascript" src="${ctx}/company/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="${ctx}/company/layer/layer.js"></script>
+@};
+@var cssContent={
+<link rel="stylesheet" href="${ctx}/company/layer/theme/default/layer.css">
+@};
+@include("/common/header.html"){}
+
+@layout("/common/layout.html",{title:"测试",jsContent:jsContent,cssContent:cssContent}){
+@for(var item in list){
+${item}
+@}
+@}
+
+@include("/common/footer.html"){}
