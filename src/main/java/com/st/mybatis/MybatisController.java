@@ -30,6 +30,12 @@ public class MybatisController {
         return Retkit.ok(sysUser);
     }
 
+    @PostMapping(value ="/company/mybatis/update/user")
+    public Retkit<SysUser> updateUser(@RequestBody SysUser sysUser){
+        sysUserMapper.updateByPrimaryKey(sysUser);
+        return Retkit.ok(sysUser);
+    }
+
     @GetMapping(value = "/jail/mybatis/user/{id}/info")
     public List<SysUser> listSysUser(@PathVariable String id) {
         return sysUserMapper.listUserById(id);
@@ -40,4 +46,6 @@ public class MybatisController {
         PageHelper.startPage(pageNum,pageSize);
         return sysUserMapper.selectAll();
     }
+
+
 }
